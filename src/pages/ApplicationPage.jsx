@@ -196,15 +196,15 @@ function ApplicationPage() {
           <div className="logo">MRpass</div>
 
           <h1>
-            병원서류 발급,
+            숨은 보험금,
             <br />
-            간편하게 신청하세요
+            놓치고 있지는 않으신가요?
           </h1>
 
           <p>
-            필요한 정보를 남겨주시면
+            간단한 정보 입력으로
             <br />
-            담당자가 확인 후 연락드립니다.
+            보험 점검을 신청해보세요.
           </p>
         </header>
 
@@ -310,36 +310,38 @@ function ApplicationPage() {
               </label>
 
               <details className="consent-detail">
-                <summary>내용보기</summary>
+  <summary>내용보기</summary>
 
-                <div>
-                  <p>
-                    <strong>수집 목적</strong>
-                    <br />
-                    병원서류 발급대행 상담 신청 접수 및 연락
-                  </p>
+  <div>
+    <p>
+      <strong>수집·이용 목적</strong>
+      <br />
+      보험 점검 및 숨은 보험금 확인 상담 신청 접수,
+      상담 진행을 위한 연락
+    </p>
 
-                  <p>
-                    <strong>수집 항목</strong>
-                    <br />
-                    이름, 연락처, 생년월일, 지역
-                  </p>
+    <p>
+      <strong>수집 항목</strong>
+      <br />
+      이름, 연락처, 생년월일, 지역
+    </p>
 
-                  <p>
-                    <strong>보유 및 이용 기간</strong>
-                    <br />
-                    [회사 내부 기준에 따른 실제 보유기간 입력]
-                  </p>
+    <p>
+      <strong>보유 및 이용 기간</strong>
+      <br />
+      상담 신청일로부터 6개월까지 보관 후 파기
+    </p>
 
-                  <p>
-                    <strong>동의 거부 권리</strong>
-                    <br />
-                    개인정보 수집 및 이용에 대한 동의를
-                    거부할 수 있습니다. 다만 동의를
-                    거부할 경우 상담 신청이 제한될 수 있습니다.
-                  </p>
-                </div>
-              </details>
+    <p>
+      <strong>동의 거부 권리</strong>
+      <br />
+      개인정보 수집 및 이용에 대한 동의를 거부할 권리가
+      있습니다. 다만 필수 개인정보 수집 및 이용에
+      동의하지 않을 경우 보험 점검 및 상담 신청이
+      제한될 수 있습니다.
+    </p>
+  </div>
+</details>
             </div>
 
             {errorMessage && (
