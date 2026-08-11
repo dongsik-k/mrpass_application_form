@@ -142,6 +142,12 @@ function ApplicationPage() {
       if (error) {
         throw error
       }
+      
+      if (window.gtag) {
+        window.gtag('event', 'generate_lead', {
+          lead_source: 'insurance_consultation_form',
+        })
+      }
 
       setSuccess(true)
 
