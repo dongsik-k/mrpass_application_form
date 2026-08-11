@@ -125,7 +125,7 @@ function PrivacyPolicy() {
             <br />
             [담당자] 김동식
             <br />
-            [연락처] 010-93218018
+            [연락처] 010-9321-8018
             <br />
             [이메일] mrpass88@naver.com
           </p>

@@ -134,14 +134,18 @@
   color: #2563eb;
 }
 
+/* 개인정보 수집 및 이용 상세내용 */
 .consent-detail {
   margin-top: 12px;
-  color: #6b7280;
-  font-size: 13px;
+  color: #858a92;
+  font-size: 12px;
+  line-height: 1.65;
 }
 
 .consent-detail summary {
+  color: #777d85;
   cursor: pointer;
+  font-size: 12px;
   text-decoration: underline;
 }
 
@@ -152,8 +156,15 @@
 }
 
 .consent-detail p {
-  margin: 10px 0;
-  line-height: 1.6;
+  margin: 9px 0;
+  color: #858a92;
+  font-size: 12px;
+  line-height: 1.65;
+}
+
+.consent-detail strong {
+  color: #666c74;
+  font-weight: 600;
 }
 
 .error-message {
@@ -193,39 +204,74 @@
   font-size: 13px;
 }
 
+/* 개인정보 처리방침 */
 .privacy-policy {
-  margin-top: 38px;
-  border-top: 1px solid #e2e5ea;
-  border-bottom: 1px solid #e2e5ea;
+  margin-top: 34px;
+  border-top: 1px solid #e6e8ec;
+  border-bottom: 1px solid #e6e8ec;
+  color: #8a8f98;
 }
 
 .privacy-policy details {
-  padding: 18px 0;
+  padding: 15px 0;
 }
 
 .privacy-policy summary {
-  color: #616771;
+  color: #7b8088;
   cursor: pointer;
-  font-size: 13px;
+  font-size: 12px;
+  font-weight: 500;
   text-align: center;
 }
 
 .privacy-policy-content {
-  margin-top: 22px;
-  color: #6b7280;
-  font-size: 13px;
-  line-height: 1.75;
+  margin-top: 16px;
+  padding: 16px;
+  border-radius: 10px;
+  background: #f8f9fa;
+  color: #7b818a;
+  font-size: 12px;
+  line-height: 1.7;
+}
+
+.privacy-policy-content h2 {
+  margin: 0 0 14px;
+  color: #555b63;
+  font-size: 14px;
+  font-weight: 600;
 }
 
 .privacy-policy-content h3 {
-  color: #333333;
-  font-size: 17px;
+  margin: 18px 0 6px;
+  color: #626871;
+  font-size: 13px;
+  font-weight: 600;
 }
 
 .privacy-policy-content h4 {
-  margin: 22px 0 5px;
-  color: #444444;
-  font-size: 14px;
+  margin: 16px 0 5px;
+  color: #6b7179;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.privacy-policy-content p {
+  margin: 6px 0;
+  color: #7b818a;
+  font-size: 12px;
+  line-height: 1.7;
+}
+
+.privacy-policy-content ul {
+  margin: 7px 0;
+  padding-left: 18px;
+}
+
+.privacy-policy-content li {
+  margin: 3px 0;
+  color: #7b818a;
+  font-size: 12px;
+  line-height: 1.65;
 }
 
 .footer {
@@ -303,5 +349,15 @@
 
   .submit-button {
     height: 56px;
+  }
+
+  .privacy-policy-content {
+    padding: 14px;
+    font-size: 11.5px;
+  }
+
+  .privacy-policy-content p,
+  .privacy-policy-content li {
+    font-size: 11.5px;
   }
 }
