@@ -38,15 +38,7 @@ function ApplicationPage() {
   const [success, setSuccess] = useState(false)
   const [errorMessage, setErrorMessage] = useState('')
 
-  const getToday = () => {
-    const today = new Date()
 
-    const year = today.getFullYear()
-    const month = String(today.getMonth() + 1).padStart(2, '0')
-    const day = String(today.getDate()).padStart(2, '0')
-
-    return `${year}-${month}-${day}`
-  }
 
   const formatPhone = (value) => {
     const numbers = value.replace(/\D/g, '').slice(0, 11)
@@ -97,8 +89,34 @@ function ApplicationPage() {
       return '연락처를 정확하게 입력해주세요.'
     }
 
-    if (!form.birthDate) {
-      return '생년월일을 입력해주세요.'
+    const birthNumbers = form.birthDate.replace(/\D/g, '')
+
+    if (birthNumbers.length !== 8) {
+      return '생년월일 8자리를 입력해주세요. 예: 19980101'
+    }
+    
+    const birthYear = Number(birthNumbers.slice(0, 4))
+    const birthMonth = Number(birthNumbers.slice(4, 6))
+    const birthDay = Number(birthNumbers.slice(6, 8))
+    
+    const birthDate = new Date(
+      birthYear,
+      birthMonth - 1,
+      birthDay
+    )
+    
+    if (
+      birthDate.getFullYear() !== birthYear ||
+      birthDate.getMonth() !== birthMonth - 1 ||
+      birthDate.getDate() !== birthDay
+    ) {
+      return '올바른 생년월일을 입력해주세요.'
+    }
+    
+    const today = new Date()
+    
+    if (birthDate > today) {
+      return '생년월일을 정확하게 입력해주세요.'
     }
 
     if (!form.region) {
@@ -128,12 +146,22 @@ function ApplicationPage() {
     try {
       const phoneNumbers = form.phone.replace(/\D/g, '')
 
+      const birthNumbers = form.birthDate.replace(/\D/g, '')
+
+const formattedBirthDate = `${birthNumbers.slice(
+  0,
+  4
+)}-${birthNumbers.slice(4, 6)}-${birthNumbers.slice(
+  6,
+  8
+)}`
+
       const { error } = await supabase
         .from('leads')
         .insert({
           name: form.name.trim(),
           phone: phoneNumbers,
-          birth_date: form.birthDate,
+          birth_date: formattedBirthDate,
           region: form.region,
           privacy_agreed: true,
           consent_version: CONSENT_VERSION,
@@ -262,14 +290,26 @@ function ApplicationPage() {
               </label>
 
               <input
-                id="birthDate"
-                name="birthDate"
-                type="date"
-                value={form.birthDate}
-                onChange={handleChange}
-                max={getToday()}
-                required
-              />
+  id="birthDate"
+  name="birthDate"
+  type="text"
+  inputMode="numeric"
+  placeholder="예: 19980101"
+  value={form.birthDate}
+  onChange={(event) => {
+    const value = event.target.value
+      .replace(/\D/g, '')
+      .slice(0, 8)
+
+    setForm((prev) => ({
+      ...prev,
+      birthDate: value,
+    }))
+  }}
+  maxLength={8}
+  autoComplete="bday"
+  required
+/>
             </div>
 
             <div className="form-group">
